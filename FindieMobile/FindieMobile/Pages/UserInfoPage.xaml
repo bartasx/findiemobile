@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FindieMobile.Pages.UserInfoPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding UserModel.Username, StringFormat='Username {0:N}'}"></Label>
+            <Label Text="{Binding UserModel.Name, StringFormat='Name {0:N}'}}"></Label>
+            <Label Text="{Binding UserModel.Surname,StringFormat='Surname {0:N}'}}"></Label>
+            <Label Text="{Binding UserModel.AccountDescription, StringFormat='About me {0:N}'}}"></Label>
+            
+            <Button Text="Add friend" Command="{Binding SendFriendRequestCommand}"></Button>
+            <Button Text="Send Message" Command="{Binding MoveToMessagingPage}"></Button>
+            <Button Text="RemoveFriend" Command="{Binding RemoveFriendCommand}"></Button>
+            <Button Text="Report User" Command="{Binding ReportUserCommand,Mode=TwoWay}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

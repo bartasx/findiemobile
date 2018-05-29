@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:FindieMobile.Helpers"
+             xmlns:customRenderer="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile"
+             x:Class="FindieMobile.Pages.RegisterPage">
+    <ContentPage.Content>
+
+        <StackLayout Spacing="20" BackgroundColor="#4D4670">
+            <Label Text="{translator:Translate Text=SignUp}" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,50,0,0">
+                <Label.TextColor>
+                    <OnPlatform x:TypeArguments="Color"                            
+                                Android="#6FBF00"
+                                iOS="Cyan">
+                    </OnPlatform>
+                </Label.TextColor>
+                <Label.FontSize>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            50
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            100
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Label.FontSize>
+            </Label>
+            <customRenderer:CircledEntry x:Name="LoginEntry" Margin="0,60,0,0" HorizontalOptions="Center" Placeholder="Login" Text="{Binding UserModel.Username, Mode=TwoWay}">
+                <Entry.WidthRequest>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            250
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            500
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Entry.WidthRequest>
+            </customRenderer:CircledEntry>
+            <customRenderer:CircledEntry x:Name="EmailEntry" HorizontalOptions="Center" Placeholder="Email" Text="{Binding UserModel.Email, Mode=TwoWay}">
+                <Entry.WidthRequest>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            250
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            500
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Entry.WidthRequest>
+            </customRenderer:CircledEntry>
+            <customRenderer:CircledEntry x:Name="PasswordEntry" IsPassword="True" HorizontalOptions="Center" Placeholder="{translator:Translate Text=Password}" Text="{Binding UserModel.Password, Mode=TwoWay}">
+                <Entry.WidthRequest>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            250
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            500
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Entry.WidthRequest>
+            </customRenderer:CircledEntry>
+
+            <customRenderer:CircledButton x:Name="CreateNewButton" HorizontalOptions="Center" Text="{translator:Translate Text=SignUp}" Command="{Binding RegisterCommand}">
+                <Button.WidthRequest>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            250
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            500
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Button.WidthRequest>
+            </customRenderer:CircledButton>
+
+            <customRenderer:CircledButton x:Name="GoBackButton" HorizontalOptions="Center" Text="{translator:Translate Text=Return}" Command="{Binding ReturnCommand}">
+                <Button.WidthRequest>
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>
+                            250
+                        </OnIdiom.Phone>
+                        <OnIdiom.Tablet>
+                            500
+                        </OnIdiom.Tablet>
+                    </OnIdiom>
+                </Button.WidthRequest>
+            </customRenderer:CircledButton>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

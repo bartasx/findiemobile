@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FindieMobile.Pages.MainPage"
+             xmlns:translator="clr-namespace:FindieMobile.Helpers"
+             xmlns:customrenderers="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile">
+             
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#4D4670" Spacing="20">
+            <Label Text="{Binding UserLocalInfo.Login, StringFormat='Welcome, {0:N}'}" FontSize="25" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+            <Grid RowSpacing="30" Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <customrenderers:CircledButton x:Name="ChatButton" Text="&#xf27a;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="0"  Grid.Column="0" Command="{Binding NavigateToChatPageCommand}"/>
+                <customrenderers:CircledButton x:Name="MapButton" Text="&#xf0ac;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" Command="{Binding NavigateToMapPageCommand}"></customrenderers:CircledButton>
+                <customrenderers:CircledButton x:Name="SettingsButton" Text="&#xf085;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Command="{Binding NavigateToSettingsPageCommand}"></customrenderers:CircledButton>
+                <customrenderers:CircledButton x:Name="LogoutButton" Text="&#xf100;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Command="{Binding LogoutCommand}">
+                </customrenderers:CircledButton>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>  

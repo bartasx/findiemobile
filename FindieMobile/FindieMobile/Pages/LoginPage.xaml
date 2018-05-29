@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:FindieMobile.Helpers;assembly=FindieMobile"
+             xmlns:customRenderers="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile"
+             x:Class="FindieMobile.Pages.LoginPage">
+
+    <StackLayout x:Name="StackLayout" BackgroundColor="#4D4670" Spacing="30">
+
+        <Image x:Name="LogoImage" HeightRequest="120" WidthRequest="150" Margin="0,10,0,0"></Image>
+
+        <Label Text="{helpers:Translate Text=SignIn}" FontAttributes="Bold" HorizontalOptions="Center">
+            <Label.FontSize>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>
+                        50
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        100
+                    </OnIdiom.Tablet>
+                </OnIdiom>
+            </Label.FontSize>
+            <Label.TextColor>
+                <OnPlatform x:TypeArguments="Color"                            
+                Android="#6FBF00"
+                iOS="Cyan">
+                </OnPlatform>
+            </Label.TextColor>
+        </Label>
+
+        <customRenderers:CircledEntry x:Name="LoginEntry" PlaceholderColor="#4D4670" HorizontalOptions="Center" Placeholder="Login" TextColor="White" Text="{Binding UserModel.Username, Mode=TwoWay}">
+            <Entry.WidthRequest>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>
+                        250
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        500
+                    </OnIdiom.Tablet>
+                </OnIdiom>
+            </Entry.WidthRequest>
+        </customRenderers:CircledEntry>
+        <customRenderers:CircledEntry x:Name="PasswordEntry" PlaceholderColor="#4D4670" HorizontalOptions="Center" Placeholder="{helpers:Translate Text=Password}" TextColor="White" IsPassword="True" Text="{Binding UserModel.Password, Mode=TwoWay}">
+            <Entry.WidthRequest>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>
+                        250
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        500
+                    </OnIdiom.Tablet>
+                </OnIdiom>
+            </Entry.WidthRequest>
+        </customRenderers:CircledEntry>
+
+        <customRenderers:CircledButton  x:Name="signInButton" HorizontalOptions="Center" Text="{helpers:Translate Text=SignIn}" TextColor="#4D4670" Command="{Binding SignInCommand}">
+            <Button.WidthRequest>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>
+                        250
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        500
+                    </OnIdiom.Tablet>
+                </OnIdiom>
+            </Button.WidthRequest>
+        </customRenderers:CircledButton>
+
+        <customRenderers:CircledButton x:Name="signUpButton" HorizontalOptions="Center" Text="{helpers:Translate Text=SignUp}" TextColor="#4D4670" Command="{Binding SignUpCommand}">
+            <Button.WidthRequest>
+                <OnIdiom x:TypeArguments="x:Double">
+                    <OnIdiom.Phone>
+                        250
+                    </OnIdiom.Phone>
+                    <OnIdiom.Tablet>
+                        500
+                    </OnIdiom.Tablet>
+                </OnIdiom>
+            </Button.WidthRequest>
+        </customRenderers:CircledButton>
+        <Label TextColor="White" HorizontalOptions="Center" FontSize="30" Text="This is a debug Version from 18th of March 2018."></Label>
+            
+    </StackLayout>
+</ContentPage>

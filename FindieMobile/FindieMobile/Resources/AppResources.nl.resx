@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcceptFriendRequest" xml:space="preserve">
+    <value>Accepteren vriendschapsverzoek</value>
+  </data>
+  <data name="AccountAlreadyExists" xml:space="preserve">
+    <value>Account met die naam/emaill bestaat al!</value>
+  </data>
+  <data name="AddedNewEvent" xml:space="preserve">
+    <value>Nieuw evenement is succesvol toegevoegd!</value>
+  </data>
+  <data name="AddFriend" xml:space="preserve">
+    <value>Vriend toevoegen</value>
+  </data>
+  <data name="ConnectionErrorMessage" xml:space="preserve">
+    <value>Verbinding is niet vastgesteld. Kijk je internet verbinding na.</value>
+  </data>
+  <data name="CreatedNewAccount" xml:space="preserve">
+    <value>Je hebt een nieuw account aangemaakt.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fout!</value>
+  </data>
+  <data name="FriendRemoved" xml:space="preserve">
+    <value>Vriend is verwijderd uit je vriendenlijst.</value>
+  </data>
+  <data name="FriendSearchbarText" xml:space="preserve">
+    <value>Vul gebruikersnaam in</value>
+  </data>
+  <data name="InvitationSent" xml:space="preserve">
+    <value>Je uitnodiging is verzonden!</value>
+  </data>
+  <data name="LocationNotSwitchedOn" xml:space="preserve">
+    <value>Zorg dat je locatie aan staat</value>
+  </data>
+  <data name="LoginErrorMessage" xml:space="preserve">
+    <value>Gegevens niet herkend! Zorg dat de ingevulde gegevens kloppen of maak een gratis nieuw account aan!</value>
+  </data>
+  <data name="MessageBlankError" xml:space="preserve">
+    <value>Je kunt geen leeg bericht versturen!</value>
+  </data>
+  <data name="NewAccountFailedLength" xml:space="preserve">
+    <value>Gegevens niet herkend! Zorg dat de ingevulde gegevens kloppen met een wachtwoord van minimaal 8 karakters!</value>
+  </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>Geen resultaten gevonden</value>
+  </data>
+  <data name="NotificationMessage" xml:space="preserve">
+    <value>Bericht van:</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Wachtwoord</value>
+  </data>
+  <data name="RecentMessages" xml:space="preserve">
+    <value>Recente berichten</value>
+  </data>
+  <data name="RemoveFriend" xml:space="preserve">
+    <value>Vriend verwijderen</value>
+  </data>
+  <data name="ReportMessage" xml:space="preserve">
+    <value>Gebruiker is gerapporteerd. Bedankt voor de informatie.</value>
+  </data>
+  <data name="ReportUser" xml:space="preserve">
+    <value>Rapporteer gebruiker</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>Terug</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Versturen</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Bericht versturen</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Aanmelden</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Inschrijven</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Succes</value>
+  </data>
+  <data name="UserInfoChanged" xml:space="preserve">
+    <value>Je gegevens zjin gewijzigd</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Waarschuwing!</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welkom</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Toevoegen</value>
+  </data>
+  <data name="FindFriends" xml:space="preserve">
+    <value>Zoek vrienden</value>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Vrienden</value>
+  </data>
+  <data name="AddEvent" xml:space="preserve">
+    <value>Toevoegen evenement</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>Naam</value>
+  </data>
+</root>

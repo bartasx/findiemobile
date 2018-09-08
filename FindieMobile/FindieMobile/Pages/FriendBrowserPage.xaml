@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:translator="clr-namespace:FindieMobile.Helpers"
+            xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+            xmlns:customrenderers="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile"           
+             x:Class="FindieMobile.Pages.FriendBrowserPage"          
+            BarBackgroundColor="Green"
+            BindingContext="{Binding FriendBrowserViewModel, Source={StaticResource Locator}}"
+            >
+
+    <ContentPage Title="{translator:Translate Text=RecentMessages}">
+        <ContentPage.Content>
+            <StackLayout>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage Title="{translator:Translate Text=FindFriends}">
+        <StackLayout BackgroundColor="#4D4670">
+            <SearchBar x:Name="SearchBar" Placeholder="{translator:Translate Text=FriendSearchbarText}"  PlaceholderColor="White" TextColor="White" Text="{Binding SearchBarText, Mode=TwoWay}" >
+                <SearchBar.Behaviors>
+                    <behaviorsPack:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchUserCommand}" EventArgsPropertyPath="NewTextValue"/>
+                </SearchBar.Behaviors>
+            </SearchBar>
+            <ListView x:Name="SearchList" ItemsSource="{Binding FoundUsersCollection}" RowHeight="60" HasUnevenRows="True" SeparatorColor="Green" BackgroundColor="#4D4670">
+                <ListView.Behaviors>
+                    <behaviorsPack:EventToCommandBehavior EventName="ItemTapped" Command="{Binding MoveToUserInfoCommand}" EventArgsPropertyPath="Item"/>
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" HeightRequest="50">
+                                <Label Text="{Binding}" TextColor="White" FontSize="25" FontAttributes="Bold"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="{translator:Translate Text=Friends}">
+        <ListView x:Name="FriendsList" ItemsSource="{Binding FriendsCollection}" RowHeight="60" HasUnevenRows="True" SeparatorColor="Green" BackgroundColor="#4D4670">
+            <ListView.Behaviors>
+                <behaviorsPack:EventToCommandBehavior EventName="ItemTapped" Command="{Binding MoveToUserInfoCommand}" EventArgsPropertyPath="Item"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" HeightRequest="60">
+                            <!--<customrenderers:FontAwesomeIcon IsVisible="{Binding IsUserOnline}" Text="&#xf111;" TextColor="Green" FontSize="15"></customrenderers:FontAwesomeIcon>-->
+                            <Label Text="{Binding}" TextColor="White" FontSize="30" FontAttributes="Bold"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+
+</TabbedPage>

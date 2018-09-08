@@ -1,40 +1,22 @@
-﻿using System.Diagnostics;
-using FindieMobile.Models;
+﻿using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using FindieMobile.SQLite.Tables;
-using FindieMobile.ViewModels;
 
 namespace FindieMobile.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChatPage : TabbedPage
+    public partial class ChatPage : ContentPage
     {
-        public ChatPage(UserLocalInfo userLocalInfo)
+        public ChatPage()
         {
             this.InitializeComponent();
-            this.BindingContext = new ChatViewModel(userLocalInfo, this.SearchList, this.Navigation, this.FriendsList);
-        }
 
-        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-            ChatViewModel.SearchUserCommand.Execute(true);
-        }
+            var item = ChatList.ItemsSource.Cast<object>().LastOrDefault();
 
-        private void SearchList_OnItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            ChatViewModel.MoveToUserInfoCommand.Execute(e.Item.ToString());
-        }
-
-        private void FriendsList_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item is UserModel user)
+            if (item != null)
             {
-                ChatViewModel.MoveToUserInfoCommand.Execute(user.Username);
-            }
-            else
-            {
-                Debug.WriteLine("Zjebało się");
+                this.ChatList.ScrollTo(item,
+                    ScrollToPosition.MakeVisible, true);
             }
         }
     }

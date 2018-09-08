@@ -1,8 +1,9 @@
 ﻿namespace FindieMobile.Models
 {
-    class LoginModel
+    public class LoginModel
     {
-        public string Login { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
     }
 }

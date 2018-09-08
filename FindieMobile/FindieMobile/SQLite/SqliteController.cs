@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace FindieMobile.SQLite
 {
-    class SQLiteController : ContentPage, IDisposable
+    public class SQLiteController : ContentPage, IDisposable
     {
-        private readonly SQLiteConnection _sqLiteConnection;
+        public readonly SQLiteConnection _sqLiteConnection;
 
         #region Dispose Method
         public void Dispose()
@@ -40,20 +40,6 @@ namespace FindieMobile.SQLite
                 Password = password,
                 IsBanned = "false"
             });
-        }
-
-        /// <summary>
-        /// This Gets User Account Data like Login, password, email, states etc.
-        /// </summary>
-        /// <param name="name">To get access to data at first it need to get login name</param>
-        /// <returns>It returns instance with all user data</returns>
-        public UserLocalInfo GetUserData()
-        {
-            var table = this._sqLiteConnection.Table<UserLocalInfo>();
-
-            UserLocalInfo list;
-
-            return list = (from account in table select account).First();
         }
 
         public void DeleteUserFromLocalDb()

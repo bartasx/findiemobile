@@ -1,5 +1,4 @@
-﻿using FindieMobile.ViewModels;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace FindieMobile.Pages
@@ -10,7 +9,6 @@ namespace FindieMobile.Pages
         public RegisterPage()
         {
             this.InitializeComponent();
-            this.BindingContext = new RegisterDataViewModel(this.Navigation, this);
         }
     }
 }

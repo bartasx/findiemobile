@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helpers="clr-namespace:FindieMobile.Helpers;assembly=FindieMobile"
              xmlns:customRenderers="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile"
-             x:Class="FindieMobile.Pages.LoginPage">
+             x:Class="FindieMobile.Pages.LoginPage"
+             BindingContext="{Binding LoginViewModel, Source={StaticResource Locator}}">
 
     <StackLayout x:Name="StackLayout" BackgroundColor="#4D4670" Spacing="30">
 
         <Image x:Name="LogoImage" HeightRequest="120" WidthRequest="150" Margin="0,10,0,0"></Image>
 
-        <Label Text="{helpers:Translate Text=SignIn}" FontAttributes="Bold" HorizontalOptions="Center">
+        <Label Text="{helpers:Translate Text=SignIn}" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center">
             <Label.FontSize>
                 <OnIdiom x:TypeArguments="x:Double">
                     <OnIdiom.Phone>
@@ -28,7 +29,7 @@
             </Label.TextColor>
         </Label>
 
-        <customRenderers:CircledEntry x:Name="LoginEntry" PlaceholderColor="#4D4670" HorizontalOptions="Center" Placeholder="Login" TextColor="White" Text="{Binding UserModel.Username, Mode=TwoWay}">
+        <customRenderers:CircledEntry x:Name="LoginEntry" HorizontalOptions="Center" Placeholder="Login" PlaceholderColor="White" TextColor="White" Text="{Binding LoginModel.Username, Mode=TwoWay}">
             <Entry.WidthRequest>
                 <OnIdiom x:TypeArguments="x:Double">
                     <OnIdiom.Phone>
@@ -40,7 +41,7 @@
                 </OnIdiom>
             </Entry.WidthRequest>
         </customRenderers:CircledEntry>
-        <customRenderers:CircledEntry x:Name="PasswordEntry" PlaceholderColor="#4D4670" HorizontalOptions="Center" Placeholder="{helpers:Translate Text=Password}" TextColor="White" IsPassword="True" Text="{Binding UserModel.Password, Mode=TwoWay}">
+        <customRenderers:CircledEntry x:Name="PasswordEntry" HorizontalOptions="Center" Placeholder="{helpers:Translate Text=Password}" PlaceholderColor="White" TextColor="White" IsPassword="True" Text="{Binding LoginModel.Password, Mode=TwoWay}">
             <Entry.WidthRequest>
                 <OnIdiom x:TypeArguments="x:Double">
                     <OnIdiom.Phone>
@@ -53,7 +54,7 @@
             </Entry.WidthRequest>
         </customRenderers:CircledEntry>
 
-        <customRenderers:CircledButton  x:Name="signInButton" HorizontalOptions="Center" Text="{helpers:Translate Text=SignIn}" TextColor="#4D4670" Command="{Binding SignInCommand}">
+        <customRenderers:CircledButton  x:Name="signInButton" HorizontalOptions="Center" Text="{helpers:Translate Text=SignIn}" TextColor="White" Command="{Binding SignInCommand}">
             <Button.WidthRequest>
                 <OnIdiom x:TypeArguments="x:Double">
                     <OnIdiom.Phone>
@@ -66,7 +67,7 @@
             </Button.WidthRequest>
         </customRenderers:CircledButton>
 
-        <customRenderers:CircledButton x:Name="signUpButton" HorizontalOptions="Center" Text="{helpers:Translate Text=SignUp}" TextColor="#4D4670" Command="{Binding SignUpCommand}">
+        <customRenderers:CircledButton x:Name="signUpButton" HorizontalOptions="Center" Text="{helpers:Translate Text=SignUp}" TextColor="White" Command="{Binding SignUpCommand}">
             <Button.WidthRequest>
                 <OnIdiom x:TypeArguments="x:Double">
                     <OnIdiom.Phone>
@@ -78,7 +79,7 @@
                 </OnIdiom>
             </Button.WidthRequest>
         </customRenderers:CircledButton>
-        <Label TextColor="White" HorizontalOptions="Center" FontSize="30" Text="This is a debug Version from 18th of March 2018."></Label>
+        <Label TextColor="White" HorizontalOptions="Center" FontSize="10" Text="This is a debug Version from 18th of March 2018."></Label>
             
     </StackLayout>
 </ContentPage>

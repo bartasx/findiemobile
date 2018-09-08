@@ -1,0 +1,1 @@
+Po sklonowaniu repozytorium nalezy zrobic revert wszystkich zmian.

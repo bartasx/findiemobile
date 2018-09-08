@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:googleMaps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             xmlns:customRenderers="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile"
+             xmlns:behaviorsPack="clr-namespace:Xamarin.Forms.BehaviorsPack;assembly=Xamarin.Forms.BehaviorsPack"
+             xmlns:translator="clr-namespace:FindieMobile.Helpers"
+             xmlns:mapBindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
+             x:Class="FindieMobile.Pages.MapPage"
+             BindingContext="{Binding MapPageViewModel, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <googleMaps:Map IsVisible="{Binding Path=!IsEventLayoutVisible}" Grid.Row="1" x:Name="Map" Opacity="{Binding MapOpacity}" VerticalOptions="FillAndExpand">
+                <googleMaps:Map.Behaviors>
+                    <behaviorsPack:EventToCommandBehavior EventName="MapLongClicked" Command="{Binding MapLongClickCommand}" EventArgsPropertyPath="Point"/>
+                    <mapBindings:BindingPinsBehavior Value="{Binding PinList}" />
+                    <mapBindings:MoveToRegionBehavior Request="{Binding MoveToRegionRequest}"/>
+                </googleMaps:Map.Behaviors>
+            </googleMaps:Map>
+
+            <SearchBar x:Name="SearchBar" Text="{Binding SearchBarText, Mode=TwoWay}" SearchCommand="{Binding SearchSpecificUserLocation}"></SearchBar>
+
+            <Frame x:Name="AddNewPinLayout" IsVisible="{Binding IsEventLayoutVisible}" BackgroundColor="DarkGray">
+                <StackLayout>
+                <Label Text="{translator:Translate Text=AddEvent}" FontAttributes="Bold"></Label>
+                <customRenderers:CircledEntry x:Name="EventNameEntry" Placeholder="{translator:Translate Text=EventName}" Text="{Binding EventModel.EventName, Mode=TwoWay}"></customRenderers:CircledEntry>
+                <customRenderers:CircledEntry Placeholder="Description" Text="{Binding EventModel.EventDescription}"></customRenderers:CircledEntry>
+                <Label Text="{translator:Translate Text=Date}"></Label>
+                <DatePicker></DatePicker>
+                <TimePicker></TimePicker>
+                    <Image HeightRequest="100" WidthRequest="100" Source="{Binding ImageSource}"></Image>
+                 <Button Command="{Binding TakeAPhotoCommand}" Text="TAKE A PICCC"></Button>
+                <customRenderers:CircledButton x:Name="ConfirmNewPinButton" Text="{translator:Translate Text=Add}" Command="{Binding AddNewEventCommand}"></customRenderers:CircledButton>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

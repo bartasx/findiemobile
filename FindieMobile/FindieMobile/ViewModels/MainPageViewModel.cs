@@ -3,15 +3,15 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using FindieMobile.Annotations;
 using FindieMobile.Pages;
-using FindieMobile.SQLite;
+using FindieMobile.Services.Interfaces;
 using FindieMobile.SQLite.Tables;
 using Xamarin.Forms;
 
 namespace FindieMobile.ViewModels
 {
-    class MainPageViewModel : INotifyPropertyChanged
+    public class MainPageViewModel : INotifyPropertyChanged
     {
-        public ICommand NavigateToChatPageCommand { get; set; }
+        public ICommand NavigateToFriendBrowserPageCommand { get; set; }
         public ICommand NavigateToMapPageCommand { get; set; }
         public ICommand NavigateToSettingsPageCommand { get; set; }
         public ICommand LogoutCommand { get; set; }
@@ -26,26 +26,28 @@ namespace FindieMobile.ViewModels
             }
         }
 
-        private readonly INavigation _navigation;
+        private readonly INavigationService _navigation;
+        private readonly IFindieWebApiService _findieWebApiService;
         private UserLocalInfo _userLocalInfo;
 
-        public MainPageViewModel(UserLocalInfo userLocalInfo, INavigation navigation)
+        public MainPageViewModel(INavigationService navigationService, IFindieWebApiService findieWebApiService, ISQLiteService sqLiteService)
         {
-            this._userLocalInfo = userLocalInfo;
-            this._navigation = navigation;
+            this._navigation = navigationService;
+            this._findieWebApiService = findieWebApiService;
+            this._userLocalInfo = sqLiteService.GetLocalUserInfo();
             this.SetCommands();
         }
 
         private void SetCommands()
         {
-            this.NavigateToChatPageCommand = new Command(async () =>
+            this.NavigateToFriendBrowserPageCommand = new Command(async () =>
             {
-                await this._navigation.PushModalAsync(new ChatPage(this._userLocalInfo));
+                await this._navigation.PushModalAsync(new FriendBrowserPage());
             });
 
             this.NavigateToMapPageCommand = new Command(async () =>
             {
-                // await this._navigation.PushModalAsync(new MapPage(this._userLocalInfo));
+                await this._navigation.PushModalAsync(new MapPage());
             });
 
             this.NavigateToSettingsPageCommand = new Command(async () =>
@@ -53,13 +55,10 @@ namespace FindieMobile.ViewModels
                 await this._navigation.PushModalAsync(new SettingsPage(this._userLocalInfo));
             });
 
-            this.LogoutCommand = new Command(() =>
+            this.LogoutCommand = new Command(async () =>
             {
-                using (var controller = new SQLiteController())
-                {
-                    controller.DeleteUserFromLocalDb();
-                    Application.Current.MainPage = new LoginPage();
-                }
+                await this._findieWebApiService.Logout();
+                Application.Current.MainPage = new LoginPage();
             });
         }
 

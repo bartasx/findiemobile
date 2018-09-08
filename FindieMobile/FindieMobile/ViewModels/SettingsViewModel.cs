@@ -12,12 +12,12 @@ using Xamarin.Forms;
 
 namespace FindieMobile.ViewModels
 {
-    class SettingsViewModel : ContentPage, INotifyPropertyChanged
+    public class SettingsViewModel : ContentPage, INotifyPropertyChanged
     {
         public bool IsIosButtonReturnVisible { get; set; }
         public string ConfirmPassword
         {
-            get { return confirmPassword; }
+            get => confirmPassword;
             set
             {
                 confirmPassword = value;
@@ -26,7 +26,7 @@ namespace FindieMobile.ViewModels
         }
         public UserModel UserModel
         {
-            get { return _userModel; }
+            get => _userModel;
             set
             {
                 _userModel = value;
@@ -52,37 +52,37 @@ namespace FindieMobile.ViewModels
             {
                 Username = userInfo.Login
             };
-            this.SetCommands();
+          //  this.SetCommands();
         }
 
-        private void SetCommands()
-        {
-            this.AcceptChangesCommand = new Command(() =>
-            {
-                try
-                {
-                    if (FindieWebApiService.UpdateCredentials(this._userModel) == "\"success\"")
-                    {
-                        ShowDialogService.ShowDialogTask(AppResources.Success, AppResources.UserInfoChanged, this._page);
-                        Application.Current.MainPage = new MainPage(this.userLocalInfo);
-                    }
-                    else
-                    {
-                        ShowDialogService.ShowDialogTask(AppResources.Error, AppResources.ConnectionErrorMessage, this._page);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    ShowDialogService.ShowDialogTask(AppResources.Error, AppResources.ConnectionErrorMessage, this._page);
-                }
-            });
+        //private void SetCommands()
+        //{
+        //    this.AcceptChangesCommand = new Command(() =>
+        //    {
+        //    //    try
+        //    //    {
+        //    //        if (FindieWebApiService.UpdateCredentials(this._userModel) == "\"success\"")
+        //    //        {
+        //    //            ShowDialogService.ShowDialogTask(AppResources.Success, AppResources.UserInfoChanged);
+        //    //            Application.Current.MainPage = new MainPage();
+        //    //        }
+        //    //        else
+        //    //        {
+        //    //            ShowDialogService.ShowDialogTask(AppResources.Error, AppResources.ConnectionErrorMessage);
+        //    //        }
+        //    //    }
+        //    //    catch (Exception ex)
+        //    //    {
+        //    //        Console.WriteLine(ex.Message);
+        //    //        ShowDialogService.ShowDialogTask(AppResources.Error, AppResources.ConnectionErrorMessage);
+        //    //    }
+        //    //});
 
-            this.ReturnIosCommand = new Command(() =>
-            {
-                Application.Current.MainPage = new MainPage(this.userLocalInfo);
-            });
-        }
+        //    this.ReturnIosCommand = new Command(() =>
+        //    {
+        //        Application.Current.MainPage = new MainPage();
+        //    });
+        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

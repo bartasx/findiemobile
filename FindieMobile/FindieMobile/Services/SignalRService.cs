@@ -1,44 +1,69 @@
-﻿using System;
-using System.Net.Http;
-using FindieMobile.Models;
-using FindieMobile.SQLite.Tables;
-using Microsoft.AspNetCore.SignalR.Client;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using System;
+using System.Threading.Tasks;
+using FindieMobile.Services.Interfaces;
 using Xamarin.Forms;
 
 namespace FindieMobile.Services
 {
-    public class SignalRService
+    public class SignalRService : ISignalRService
     {
-        public readonly HubConnection _hubConnection;
+        public event EventHandler OnMessageReceived;
+        public HubConnection HubConnection;
 
-        public SignalRService()
+        public async Task ConnectToChat()
         {
             try
             {
-                this._hubConnection = new HubConnectionBuilder().WithUrl("http://findieweb.pl/apphub").WithTransport(Microsoft.AspNetCore.Sockets.
-                    TransportType.LongPolling).Build();
+                this.HubConnection = new HubConnectionBuilder().WithUrl("http://findieweb.azurewebsites.net/apphub").Build();
+                await HubConnection.StartAsync();
+                this.Config();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
+                Console.WriteLine(e.Message);
             }
         }
-
-        public async void ConnectToChat()
-        {
-            try
-            {
-              await this._hubConnection.StartAsync();
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
+        // TO FIX
         public async void SendMessage(string firstUserNickname, string secondUserNickname, string message)
         {
-            await this._hubConnection.InvokeAsync("Send", firstUserNickname, secondUserNickname, message);
+            if (this.HubConnection != null)
+            {
+                   await this.HubConnection.InvokeAsync("Send", firstUserNickname, secondUserNickname, message);          
+            }
         }
+
+        public async Task SendCurrentLocationAsync(double latituide, double longitude, string username)
+        {
+            await this.HubConnection.InvokeAsync("Location", longitude, latituide, username);
+        }
+
+        public async Task<bool> IsClientSuccesfullyConnected(string username)
+        {
+            try
+            {
+                await this.HubConnection.InvokeAsync("Connect", username);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        private void Config()
+        {
+            this.HubConnection.On<string, string, string>("broadcast",
+            (fromUsername, toUsername, message) =>
+            {
+                this.OnMessageReceived?.Invoke(this, new MessageReceiveEventArgs() { MessageContent = message, MessageFrom = fromUsername });
+            });
+        }
+    }
+
+    public class MessageReceiveEventArgs : EventArgs
+    {
+        public string MessageFrom { get; set; }
+        public string MessageContent { get; set; }
     }
 }

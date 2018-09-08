@@ -117,8 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AcceptFriendRequest" xml:space="preserve">
+    <value>Akceptuj zaproszenie do znajomych</value>
+  </data>
   <data name="AccountAlreadyExists" xml:space="preserve">
     <value>Konto z tą nazwą/emailem zostało już założone!</value>
+  </data>
+  <data name="AddedNewEvent" xml:space="preserve">
+    <value>Pomyślnie dodano nowe wydarzenie!</value>
+  </data>
+  <data name="AddFriend" xml:space="preserve">
+    <value>Dodaj znajomego</value>
   </data>
   <data name="ConnectionErrorMessage" xml:space="preserve">
     <value>Nie można połączyć się z serwerem aplikacji. Sprawdź swoje połączenie z internetem.</value>
@@ -131,6 +140,9 @@
   </data>
   <data name="FriendRemoved" xml:space="preserve">
     <value>Użytkownik został usunięty z listy znajomych!</value>
+  </data>
+  <data name="FriendSearchbarText" xml:space="preserve">
+    <value>Podaj nazwę użytkownika</value>
   </data>
   <data name="InvitationSent" xml:space="preserve">
     <value>Użytkownik został zaproszony</value>
@@ -147,20 +159,35 @@
   <data name="NewAccountFailedLength" xml:space="preserve">
     <value>Niepoprawne dane ! Upewnij się, że wypełniłeś wszystkie pola oraz podałeś hasło z minimum 8 znakami!</value>
   </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>Brak wyników</value>
+  </data>
   <data name="NotificationMessage" xml:space="preserve">
     <value>Wiadomość od: </value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Hasło</value>
   </data>
+  <data name="RecentMessages" xml:space="preserve">
+    <value>Ostatnie Wiadomości</value>
+  </data>
+  <data name="RemoveFriend" xml:space="preserve">
+    <value>Usuń znajomego</value>
+  </data>
   <data name="ReportMessage" xml:space="preserve">
     <value>Użytkownik został zgłoszony. Dziękujemy za informację.</value>
+  </data>
+  <data name="ReportUser" xml:space="preserve">
+    <value>Zgłoś użytkownika</value>
   </data>
   <data name="Return" xml:space="preserve">
     <value>Powrót</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>Wyślij</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Wyślij Wiadomość</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Zaloguj się</value>
@@ -179,5 +206,23 @@
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Witaj</value>
+  </data>
+  <data name="FindFriends" xml:space="preserve">
+    <value>Wyszukaj znajomych</value>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Znajomi</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddEvent" xml:space="preserve">
+    <value>Dodaj wydarzenie</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>Nazwa</value>
   </data>
 </root>

@@ -6,40 +6,40 @@ using FindieMobile.Annotations;
 using FindieMobile.Models;
 using FindieMobile.Pages;
 using FindieMobile.Resources;
-using FindieMobile.Services;
+using FindieMobile.Services.Interfaces;
 using FindieMobile.SQLite;
 using Xamarin.Forms;
 
 namespace FindieMobile.ViewModels
 {
-    class LoginViewModel : ContentPage, IDisposable, INotifyPropertyChanged
+    public class LoginViewModel : ContentPage, IDisposable, INotifyPropertyChanged
     {
-        public UserModel UserModel
+        public LoginModel LoginModel
         {
-            get { return _userModel; }
+            get { return _loginModel; }
             set
             {
-                _userModel = value;
+                _loginModel = value;
                 this.OnPropertyChanged();
             }
         }
         public ICommand SignInCommand { get; set; }
         public ICommand SignUpCommand { get; set; }
-        private UserModel _userModel = new UserModel();
-        private readonly INavigation _navigation;
-        private readonly Page _page;
+        private LoginModel _loginModel = new LoginModel();
+        private readonly INavigationService _navigation;
+        private readonly IShowDialogService _showDialogService;
+        private readonly IFindieWebApiService _findieWebApiService;
         public void Dispose()
         {
         }
 
-        public LoginViewModel(INavigation navigation, Page page)
+        public LoginViewModel(INavigationService navigation, IShowDialogService showDialogService, IFindieWebApiService findieWebApiService)
         {
-            this.SetCommands();
             this._navigation = navigation;
-            this._page = page;
+            this._showDialogService = showDialogService;
+            this._findieWebApiService = findieWebApiService;
+            this.SetCommands();
         }
-
-        public LoginViewModel() { }
 
         #region PrivateMethods
         private void SetCommands()
@@ -48,24 +48,24 @@ namespace FindieMobile.ViewModels
             {
                 try
                 {
-                    if (FindieWebApiService.IsUserExists(this._userModel.Username, this._userModel.Password))
+                    if (this._findieWebApiService.IsUserExists(this._loginModel.Username, this._loginModel.Password))
                     {
                         using (var controller = new SQLiteController())
                         {
-                            controller.AddLoginData(this._userModel.Username, this._userModel.Password);
-                            var userData = controller.GetUserData();
-                            Application.Current.MainPage = new MainPage(userData);
+                            controller.AddLoginData(this._loginModel.Username, this._loginModel.Password);
+                            Application.Current.MainPage = new MainPage();
                         }
                     }
                     else
                     {
-                         ShowDialogService.ShowDialogTask(AppResources.Error, AppResources.LoginErrorMessage, _page);
+                        await this._showDialogService.ShowDialog(AppResources.Error, AppResources.LoginErrorMessage);
                     }
                 }
                 catch (Exception ex)
                 {
-                    ShowDialogService.ShowDialogTask(AppResources.Error, AppResources.ConnectionErrorMessage, _page);
+                    await this._showDialogService.ShowDialog(AppResources.Error, AppResources.ConnectionErrorMessage);
                 }
+
             });
 
             this.SignUpCommand = new Command(async () =>

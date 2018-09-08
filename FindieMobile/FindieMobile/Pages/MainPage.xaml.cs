@@ -1,5 +1,4 @@
-﻿using FindieMobile.SQLite.Tables;
-using FindieMobile.ViewModels;
+﻿using FindieMobile.Services.Interfaces;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,10 +7,9 @@ namespace FindieMobile.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        public MainPage(UserLocalInfo userLocalInfo)
+        public MainPage()
         {
             this.InitializeComponent();
-            this.BindingContext = new MainPageViewModel(userLocalInfo, this.Navigation);           
         }
     }
 }

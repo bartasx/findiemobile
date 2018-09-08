@@ -7,10 +7,10 @@ namespace FindieMobile.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserInfoPage : ContentPage
     {
-        public UserInfoPage(ChatViewModel chatViewModel)
+        public UserInfoPage(FriendBrowserViewModel friendBrowserViewModel)
         {
             this.InitializeComponent();
-            this.BindingContext = chatViewModel;
+            this.BindingContext = friendBrowserViewModel;
         }
     }
 }

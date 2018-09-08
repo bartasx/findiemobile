@@ -1,4 +1,4 @@
-﻿using FindieMobile.ViewModels;
+﻿using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +10,7 @@ namespace FindieMobile.Pages
         public LoginPage()
         {
             this.InitializeComponent();
-            this.LogoImage.Source = ImageSource.FromResource("FindieMobile.Resources.Images.Findie.png");
-            this.BindingContext = new LoginViewModel(this.Navigation, this);
+            this.LogoImage.Source = ImageSource.FromResource("FindieMobile.Resources.Images.Findie.png", Assembly.GetExecutingAssembly());
         }
     }
 }

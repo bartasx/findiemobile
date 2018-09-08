@@ -1,5 +1,6 @@
 using System.IO;
 using FindieMobile.Droid.SQLite;
+using FindieMobile.Interfaces;
 using FindieMobile.SQLite;
 using SQLite;
 using Xamarin.Forms;
@@ -8,7 +9,7 @@ using Xamarin.Forms;
 
 namespace FindieMobile.Droid.SQLite
 {
-    public class SQLite_Android : ISQLite
+    public class SQLite_Android : ISQLite 
     {
         public SQLite_Android() { }
         public SQLiteConnection GetConnection()

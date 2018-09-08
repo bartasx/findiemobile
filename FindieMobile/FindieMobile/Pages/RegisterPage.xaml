@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:translator="clr-namespace:FindieMobile.Helpers"
              xmlns:customRenderer="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile"
-             x:Class="FindieMobile.Pages.RegisterPage">
+             x:Class="FindieMobile.Pages.RegisterPage"
+             BindingContext="{Binding RegisterViewModel, Source={StaticResource Locator}}">
     <ContentPage.Content>
 
         <StackLayout Spacing="20" BackgroundColor="#4D4670">
-            <Label Text="{translator:Translate Text=SignUp}" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,50,0,0">
+            <Label Text="{translator:Translate Text=SignUp}" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" Margin="0,50,0,0">
                 <Label.TextColor>
                     <OnPlatform x:TypeArguments="Color"                            
                                 Android="#6FBF00"
@@ -25,7 +26,7 @@
                     </OnIdiom>
                 </Label.FontSize>
             </Label>
-            <customRenderer:CircledEntry x:Name="LoginEntry" Margin="0,60,0,0" HorizontalOptions="Center" Placeholder="Login" Text="{Binding UserModel.Username, Mode=TwoWay}">
+            <customRenderer:CircledEntry x:Name="LoginEntry" Margin="0,60,0,0" HorizontalOptions="Center" TextColor="White" Placeholder="Login" PlaceholderColor="White" Text="{Binding RegisterModel.Username, Mode=TwoWay}">
                 <Entry.WidthRequest>
                     <OnIdiom x:TypeArguments="x:Double">
                         <OnIdiom.Phone>
@@ -37,7 +38,7 @@
                     </OnIdiom>
                 </Entry.WidthRequest>
             </customRenderer:CircledEntry>
-            <customRenderer:CircledEntry x:Name="EmailEntry" HorizontalOptions="Center" Placeholder="Email" Text="{Binding UserModel.Email, Mode=TwoWay}">
+            <customRenderer:CircledEntry x:Name="EmailEntry" HorizontalOptions="Center" Placeholder="Email" PlaceholderColor="White" TextColor="White" Text="{Binding RegisterModel.Email, Mode=TwoWay}">
                 <Entry.WidthRequest>
                     <OnIdiom x:TypeArguments="x:Double">
                         <OnIdiom.Phone>
@@ -49,7 +50,7 @@
                     </OnIdiom>
                 </Entry.WidthRequest>
             </customRenderer:CircledEntry>
-            <customRenderer:CircledEntry x:Name="PasswordEntry" IsPassword="True" HorizontalOptions="Center" Placeholder="{translator:Translate Text=Password}" Text="{Binding UserModel.Password, Mode=TwoWay}">
+            <customRenderer:CircledEntry x:Name="PasswordEntry" IsPassword="True" HorizontalOptions="Center" TextColor="White" Placeholder="{translator:Translate Text=Password}" PlaceholderColor="White" Text="{Binding RegisterModel.Password, Mode=TwoWay}">
                 <Entry.WidthRequest>
                     <OnIdiom x:TypeArguments="x:Double">
                         <OnIdiom.Phone>
@@ -62,7 +63,7 @@
                 </Entry.WidthRequest>
             </customRenderer:CircledEntry>
 
-            <customRenderer:CircledButton x:Name="CreateNewButton" HorizontalOptions="Center" Text="{translator:Translate Text=SignUp}" Command="{Binding RegisterCommand}">
+            <customRenderer:CircledButton x:Name="CreateNewButton" HorizontalOptions="Center" TextColor="White" Text="{translator:Translate Text=SignUp}" Command="{Binding RegisterCommand}">
                 <Button.WidthRequest>
                     <OnIdiom x:TypeArguments="x:Double">
                         <OnIdiom.Phone>
@@ -75,7 +76,7 @@
                 </Button.WidthRequest>
             </customRenderer:CircledButton>
 
-            <customRenderer:CircledButton x:Name="GoBackButton" HorizontalOptions="Center" Text="{translator:Translate Text=Return}" Command="{Binding ReturnCommand}">
+            <customRenderer:CircledButton x:Name="GoBackButton" HorizontalOptions="Center" TextColor="White" Text="{translator:Translate Text=Return}" Command="{Binding ReturnCommand}">
                 <Button.WidthRequest>
                     <OnIdiom x:TypeArguments="x:Double">
                         <OnIdiom.Phone>

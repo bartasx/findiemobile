@@ -1,15 +1,14 @@
-﻿using Xamarin.Forms;
+﻿using System.Threading.Tasks;
+using FindieMobile.Services.Interfaces;
+using Xamarin.Forms;
 
 namespace FindieMobile.Services
 {
-    public static class ShowDialogService
+    public class ShowDialogService : IShowDialogService
     {
-        public static void ShowDialogTask(string title, string content, Page page)
+        public async Task ShowDialog(string title, string content)
         {
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                await page.DisplayAlert(title, content, "Ok");
-            });
+            await Application.Current.MainPage.DisplayAlert(title, content, "Ok");
         }
     }
 }

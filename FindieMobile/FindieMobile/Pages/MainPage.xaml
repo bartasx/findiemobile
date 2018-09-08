@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FindieMobile.Pages.MainPage"
              xmlns:translator="clr-namespace:FindieMobile.Helpers"
-             xmlns:customrenderers="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile">
+             xmlns:customrenderers="clr-namespace:FindieMobile.CustomRenderers;assembly=FindieMobile"
+             BindingContext="{Binding MainPageViewModel, Source={StaticResource Locator}}">
              
     <ContentPage.Content>
         <StackLayout BackgroundColor="#4D4670" Spacing="20">
@@ -17,7 +18,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <customrenderers:CircledButton x:Name="ChatButton" Text="&#xf27a;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="0"  Grid.Column="0" Command="{Binding NavigateToChatPageCommand}"/>
+                <customrenderers:CircledButton x:Name="ChatButton" Text="&#xf27a;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="0"  Grid.Column="0" Command="{Binding NavigateToFriendBrowserPageCommand}"/>
                 <customrenderers:CircledButton x:Name="MapButton" Text="&#xf0ac;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" Command="{Binding NavigateToMapPageCommand}"></customrenderers:CircledButton>
                 <customrenderers:CircledButton x:Name="SettingsButton" Text="&#xf085;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0" Command="{Binding NavigateToSettingsPageCommand}"></customrenderers:CircledButton>
                 <customrenderers:CircledButton x:Name="LogoutButton" Text="&#xf100;" TextColor="#4D4670" FontSize="100" WidthRequest="250" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Command="{Binding LogoutCommand}">

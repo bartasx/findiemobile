@@ -117,9 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AcceptFriendRequest" xml:space="preserve">
+    <value>Accept friend request</value>
+  </data>
   <data name="AccountAlreadyExists" xml:space="preserve">
     <value>Account with that login/mail already exists!</value>
     <comment>Message appears when user try to create account</comment>
+  </data>
+  <data name="AddedNewEvent" xml:space="preserve">
+    <value>New Event has been added successfully!</value>
+  </data>
+  <data name="AddFriend" xml:space="preserve">
+    <value>Add Friend</value>
   </data>
   <data name="ConnectionErrorMessage" xml:space="preserve">
     <value>Connection not established. Check your internet connection.</value>
@@ -136,6 +145,9 @@
   <data name="FriendRemoved" xml:space="preserve">
     <value>Friend has been removed from your friends list</value>
   </data>
+  <data name="FriendSearchbarText" xml:space="preserve">
+    <value>Type Username</value>
+  </data>
   <data name="InvitationSent" xml:space="preserve">
     <value>Your invitation has been sent!</value>
   </data>
@@ -151,6 +163,9 @@
   <data name="NewAccountFailedLength" xml:space="preserve">
     <value>Credentials not correct! Make sure that you had typed correct data and you had typed password with minimum 8 characters! </value>
   </data>
+  <data name="NoResultsFound" xml:space="preserve">
+    <value>No results found.</value>
+  </data>
   <data name="NotificationMessage" xml:space="preserve">
     <value>Message from: </value>
   </data>
@@ -158,8 +173,17 @@
     <value>Password</value>
     <comment>string on password entry</comment>
   </data>
+  <data name="RecentMessages" xml:space="preserve">
+    <value>Recent Messages</value>
+  </data>
+  <data name="RemoveFriend" xml:space="preserve">
+    <value>Remove Friend</value>
+  </data>
   <data name="ReportMessage" xml:space="preserve">
     <value>User has been reported. Thank you for the information.</value>
+  </data>
+  <data name="ReportUser" xml:space="preserve">
+    <value>Report User</value>
   </data>
   <data name="Return" xml:space="preserve">
     <value>Return</value>
@@ -167,6 +191,9 @@
   <data name="Send" xml:space="preserve">
     <value>Send</value>
     <comment>Button label</comment>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send Message</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>Sign In</value>
@@ -189,5 +216,23 @@
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
+  </data>
+  <data name="FindFriends" xml:space="preserve">
+    <value>Find Friends</value>
+  </data>
+  <data name="Friends" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddEvent" xml:space="preserve">
+    <value>Add new event</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="EventName" xml:space="preserve">
+    <value>Event Name</value>
   </data>
 </root>

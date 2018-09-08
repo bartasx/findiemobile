@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using UIKit;
+using Xamarin;
 
 namespace FindieMobile.iOS
 {
@@ -23,8 +20,8 @@ namespace FindieMobile.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            FormsGoogleMaps.Init("AIzaSyDgiS4dYbsSIj1IIoCTjmiGRo8UJHatJME");
             LoadApplication(new App());
-
             return base.FinishedLaunching(app, options);
         }
     }

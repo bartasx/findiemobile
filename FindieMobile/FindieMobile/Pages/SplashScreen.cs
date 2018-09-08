@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Reflection;
 using System.Threading.Tasks;
+using FindieMobile.Enums;
 using FindieMobile.Services;
-using FindieMobile.SQLite;
+using FindieMobile.Services.Interfaces;
 using FindieMobile.SQLite.Tables;
 using Xamarin.Forms;
 
@@ -12,13 +14,18 @@ namespace FindieMobile.Pages
         Image SplashImage;
         private UserLocalInfo userLocalInfo;
         private bool IsLoading;
+        private readonly SQLiteService _sqLiteService;
+        private readonly FindieWebApiService _apiService;
         public SplashScreen()
-        {
+        {           
+            this._sqLiteService = new SQLiteService();
+            this._apiService = new FindieWebApiService();
+
             NavigationPage.SetHasNavigationBar(this, false);
 
             this.SplashImage = new Image
             {
-                Source = ImageSource.FromResource("FindieMobile.Resources.Images.Findie.png"),
+                Source = ImageSource.FromResource("FindieMobile.Resources.Images.Findie.png", Assembly.GetExecutingAssembly()),
                 WidthRequest = 100,
                 HeightRequest = 100
             };
@@ -39,7 +46,7 @@ namespace FindieMobile.Pages
             if (IsUserAreadyLoggedIn())
             {
                 await this.AnimateLogo();
-                Application.Current.MainPage = new Pages.MainPage(this.userLocalInfo);
+                Application.Current.MainPage = new Pages.MainPage();
             }
             else
             {
@@ -52,21 +59,16 @@ namespace FindieMobile.Pages
         {
             try
             {
-                using (var controller = new SQLiteController())
+                if (this._apiService.IsUserExists())
                 {
-                    var userData = controller.GetUserData();
-
-                    if (FindieWebApiService.IsUserExists(userData.Login, userData.Password))
-                    {
-                        this.userLocalInfo = userData;
-                        IsLoading = false;
-                        return true;
-                    }
-                    else
-                    {
-                        IsLoading = false;
-                        return false;
-                    }
+                    this.userLocalInfo = this._sqLiteService.GetLocalUserInfo();
+                    IsLoading = false;
+                    return true;
+                }
+                else
+                {
+                    IsLoading = false;
+                    return false;
                 }
             }
             catch (Exception)
@@ -81,7 +83,7 @@ namespace FindieMobile.Pages
             await this.SplashImage.ScaleTo(1, 1500, Easing.Linear);
 
             await this.SplashImage.ScaleTo(100, 1000, Easing.Linear);
-            this.SplashImage.Opacity = 0;
+            this.SplashImage.Opacity = (int)ControlsOpacity.Invisible;
         }
     }
 }
